@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.bt-day {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.bt-mounth {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+.result1 {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}

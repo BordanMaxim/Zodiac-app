@@ -3,52 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zodiac Sign</title>
+    <title>Узнай свой знак зодиака!</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <label for="day">Введите день рождения:</label>
-        <input type="text" id="day" placeholder="День">
-
-        <label for="month">Введите месяц рождения (в числовом формате):</label>
-        <input type="text" id="month" placeholder="Месяц">
-
-        <button onclick="getZodiacSignAndDisplay()">Узнать знак зодиака</button>
+        <div class="bt-day">
+            <label for="day">Введите день рождения:</label>
+            <input type="text" id="day" placeholder="День" oninput="getZodiacSignAndDisplay()">
+        </div>
+        <div class="bt-mounth">
+            <label for="month">Введите месяц рождения (в числовом формате):</label>
+            <input type="text" id="month" placeholder="Месяц" oninput="getZodiacSignAndDisplay()">
+        </div>
+        <div class="result1" id="result"></div>
     </div>
 
-    <div id="result"></div>
+    
 
     <script>
         function getZodiacSign(day, month) {
-    if ((month === 3 && day >= 21) || (month === 4 && day <= 19)) return "Овен";
-    if ((month === 4 && day >= 20) || (month === 5 && day <= 20)) return "Телец";
-    if ((month === 5 && day >= 21) || (month === 6 && day <= 20)) return "Близнецы";
-    if ((month === 6 && day >= 21) || (month === 7 && day <= 22)) return "Рак";
-    if ((month === 7 && day >= 23) || (month === 8 && day <= 22)) return "Лев";
-    if ((month === 8 && day >= 23) || (month === 9 && day <= 22)) return "Дева";
-    if ((month === 9 && day >= 23) || (month === 10 && day <= 22)) return "Весы";
-    if ((month === 10 && day >= 23) || (month === 11 && day <= 21)) return "Скорпион";
-    if ((month === 11 && day >= 22) || (month === 12 && day <= 21)) return "Стрелец";
-    if ((month === 12 && day >= 22) || (month === 1 && day <= 19)) return "Козерог";
-    if ((month === 1 && day >= 20) || (month === 2 && day <= 18)) return "Водолей";
-    return "Рыбы";
-}
+            if ((month === 3 && day >= 21) || (month === 4 && day <= 19)) return "Овен";
+            if ((month === 4 && day >= 20) || (month === 5 && day <= 20)) return "Телец";
+            if ((month === 5 && day >= 21) || (month === 6 && day <= 20)) return "Близнецы";
+            if ((month === 6 && day >= 21) || (month === 7 && day <= 22)) return "Рак";
+            if ((month === 7 && day >= 23) || (month === 8 && day <= 22)) return "Лев";
+            if ((month === 8 && day >= 23) || (month === 9 && day <= 22)) return "Дева";
+            if ((month === 9 && day >= 23) || (month === 10 && day <= 22)) return "Весы";
+            if ((month === 10 && day >= 23) || (month === 11 && day <= 21)) return "Скорпион";
+            if ((month === 11 && day >= 22) || (month === 12 && day <= 21)) return "Стрелец";
+            if ((month === 12 && day >= 22) || (month === 1 && day <= 19)) return "Козерог";
+            if ((month === 1 && day >= 20) || (month === 2 && day <= 18)) return "Водолей";
+            return "Рыбы";
+        }
 
         function getZodiacSignAndDisplay() {
-            var day = document.getElementById("day").value;
-            var month = document.getElementById("month").value;
+            let day = document.getElementById("day").value;
+            let month = document.getElementById("month").value;
 
             // Преобразуем введенные значения в числа
             day = parseInt(day);
             month = parseInt(month);
 
             // Получаем знак зодиака
-            var zodiacSign = getZodiacSign(day, month);
+            let zodiacSign = getZodiacSign(day, month);
 
             // Выводим результат в div с id="result"
-            var resultDiv = document.getElementById("result");
+            let resultDiv = document.getElementById("result");
             resultDiv.textContent = "Ваш знак зодиака: " + zodiacSign;
         }
+
+        // Вызываем функцию при загрузке документа
+        document.addEventListener("DOMContentLoaded", function () {
+            getZodiacSignAndDisplay();
+        });
     </script>
 </body>
 </html>
